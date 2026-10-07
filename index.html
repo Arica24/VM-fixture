@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#ffffff" name="theme-color"/>
+  <title>
+   VM Fixture · Shoe wall planner
+  </title>
+  <meta content="Arrange your shoe wall with editable bars, product images and saved layouts." name="description"/>
+  <link href="assets/favicon.svg" rel="icon"/>
+  <link href="css/styles.css" rel="stylesheet"/>
+  <script defer="" src="js/product-sheet.js">
+  </script>
+  <script defer="" src="js/app.js">
+  </script>
+ <script src="js/sheet-codes.js" defer></script>
+ <script src="js/photo-editor.js" defer></script>
+ <script src="js/fixture-editor.js" defer></script>
+</head>
+ <body data-tab="wall">
+  <header>
+   <div class="logo" title="Standalone edition — works without an account">
+    VM Fixture
+   </div>
+   <span class="tag">
+    SHOE DISPLAY PLANNER
+   </span>
+   <div class="right">
+    <span id="saveStatus">
+     Opening…
+    </span>
+    <button class="primary" id="saveBtn">
+     Save
+    </button>
+    <button id="exportBtn">
+     Export
+    </button>
+   </div>
+  </header>
+  <main>
+   <aside class="library">
+    <div class="eyebrow">
+     YOUR SHOE COLLECTION
+    </div>
+    <h2 style="margin-top:7px">
+     Products
+     <span class="muted" id="productCount">
+     </span>
+    </h2>
+    <button class="upload" id="uploadBtn">
+     ＋ Upload shoe images
+    </button>
+    <button id="sheetBtn" style="width:100%;font-size:14px;margin-bottom:10px">
+     Upload a product sheet
+    </button>
+    <button id="addAd" style="width:100%;font-size:14px;margin-bottom:12px">
+     ＋ Advertisement square
+    </button>
+    <input aria-label="Search products" id="search" placeholder="Search product code" type="search"/>
+    <div id="catalog">
+    </div>
+    <p class="muted">
+     Upload individual shoes or photograph your product sheet. Edit product codes in Details.
+    </p>
+   </aside>
+   <section class="workspace">
+    <div class="workhead">
+     <select aria-label="Current layout" id="planSelect">
+     </select>
+     <button id="renameBtn" title="Rename layout">
+      Rename
+     </button>
+     <span class="spacer">
+     </span>
+     <button id="newBtn">
+      ＋ New layout
+     </button>
+    </div>
+    <div class="toolbar"><select id="wallView" aria-label="Wall view"><option value="model">Editable fixture</option><option value="photo">3D illustration</option><option value="grid">Editable bars</option></select><select id="drawingTool" aria-label="Drawing tool"><option value="select">Select / move</option><option value="rect">Draw rectangle</option><option value="ellipse">Draw circle / oval</option><option value="line">Draw line</option><option value="pen">Freehand draw</option><option value="text">Add text</option></select><input id="drawingColour" type="color" value="#e4d7c3" aria-label="Drawing colour" title="Drawing colour">
+     <button id="addPillar">＋ Pillar</button><button id="addShelf">＋ Shelf</button><button id="fixtureAd">＋ Advertisement</button><button id="addBar">
+      ＋ Bar
+     </button>
+     <button id="addRow">
+      ＋ Row
+     </button>
+     <button id="removeRow">
+      − Row
+     </button>
+     <span class="separator">
+     </span>
+     <button id="undo" title="Undo (Ctrl+Z)">
+      ↶ Undo
+     </button>
+     <button id="redo" title="Redo (Ctrl+Shift+Z)">
+      ↷ Redo
+     </button>
+     <span class="separator">
+     </span>
+     <select aria-label="Wall zoom" id="zoom">
+      <option selected="" value="fit">
+       Fit wall
+      </option>
+      <option value="0.35">
+       35%
+      </option>
+      <option value="0.5">
+       50%
+      </option>
+      <option value="0.65">
+       65%
+      </option>
+      <option value="0.8">
+       80%
+      </option>
+      <option value="1">
+       100%
+      </option>
+      <option value="1.2">
+       120%
+      </option>
+     </select>
+     <button id="referenceBtn">
+      Store photo
+     </button>
+     <button id="donePlacing">
+      Done placing
+     </button>
+    </div>
+    <div class="boardwrap">
+     <div class="board" id="board">
+      <div class="loading">
+       Opening your wall…
+      </div>
+     </div>
+    </div>
+    <div class="footer">
+     <span id="stats">
+     </span>
+     <span id="desktopHint">
+      Drag a shoe, or select one and click a position.
+     </span>
+     <span id="mobileHint">
+      Choose a shoe in Products, then tap a position.
+     </span>
+    </div>
+   </section>
+   <aside class="inspector">
+    <div class="eyebrow">
+     POSITION &amp; PRODUCT
+    </div>
+    <h2 style="margin-top:7px">
+     Details
+    </h2>
+    <div id="inspectorBody">
+     <div class="noselection muted">
+      Choose a shoe or a wall position to edit it.
+     </div>
+    </div>
+    <div class="note">
+     <p>
+      <strong>
+       Make the wall your own
+      </strong>
+     </p>
+     <p>
+      Each bar has its own positions. Add or remove them without changing the other bars.
+     </p>
+     <p>
+      Select a placed shoe, choose Move or Copy, then choose its new position.
+     </p>
+     <button id="duplicatePlan" style="width:100%">
+      Duplicate this layout
+     </button>
+     <button class="danger" id="deletePlan" style="width:100%;margin-top:7px">
+      Delete this layout
+     </button>
+    </div>
+   </aside>
+  </main>
+  <nav aria-label="Workspace panels" class="mobiletabs">
+   <button data-tab="products">
+    Products
+   </button>
+   <button class="on" data-tab="wall">
+    Wall
+   </button>
+   <button data-tab="details">
+    Details
+   </button>
+  </nav>
+  <input accept="image/png,image/jpeg,image/webp" hidden="" id="files" multiple="" type="file"/>
+  <input accept="image/png,image/jpeg,image/webp" hidden="" id="sheetFile" type="file"/>
+  <input accept="application/json" hidden="" id="backupFile" type="file"/>
+  <dialog id="referenceDialog">
+   <div class="dialoghead">
+    <h2>
+     Your store reference
+    </h2>
+    <button data-close="">
+     Close
+    </button>
+   </div>
+   <img alt="Reference photo of the football shoe display" data-reference=""/>
+   <p class="muted">
+    12 visible front bars used as the starting point. Signs and perspective obscure some positions.
+   </p>
+  </dialog>
+  <dialog id="exportDialog">
+   <div class="dialoghead">
+    <h2>
+     Export your layout
+    </h2>
+    <button data-close="">
+     Close
+    </button>
+   </div>
+   <div class="actions">
+    <button class="primary" id="pngBtn">
+     Download image
+    </button>
+    <button id="printBtn">
+     Print / Save PDF
+    </button>
+    <button id="backupBtn">
+     Download backup
+    </button>
+    <button id="restoreBtn">
+     Import backup
+    </button>
+   </div>
+   <p class="muted">
+    Image and PDF exports are for sharing. A backup includes all layouts and products. Saving uses this browser; download backups to move work between devices or keep an extra copy.
+   </p>
+  </dialog>
+  <dialog id="cropDialog">
+   <div class="dialoghead">
+    <h2>
+     Import a product sheet
+    </h2>
+    <button data-close="">
+     Done
+    </button>
+   </div>
+   <p class="muted">
+    Detected images appear below. Check the crops, untick anything you do not want, and import. To add a missing shoe, draw a rectangle around it.
+   </p>
+   <div class="sheettools">
+    <button id="detectBtn">
+     Detect products again
+    </button>
+    <label>
+     Rows
+     <input id="gridRows" max="20" min="1" type="number" value="5"/>
+    </label>
+    <label>
+     Columns
+     <input id="gridCols" max="20" min="1" type="number" value="6"/>
+    </label>
+    <button id="gridBtn">
+     Split selected area into grid
+    </button>
+   </div>
+   <p class="muted" id="sheetProgress" role="status">
+   </p>
+   <canvas id="cropCanvas">
+   </canvas>
+   <div id="cropCandidates">
+   </div>
+   <button class="primary" id="importCrops" style="width:100%;margin:15px 0">
+    Import selected images
+   </button>
+   <div>
+    <input aria-label="Product code for cropped shoe" id="cropCode" placeholder="Product code"/>
+    <button class="primary" id="cropAdd">
+     Add this crop to preview
+    </button>
+   </div>
+  </dialog>
+  <div id="toast" role="status">
+  </div>
+ </body>
+</html>
