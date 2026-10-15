@@ -28,22 +28,11 @@ Built with HTML, CSS and JavaScript. No installation, account or backend is need
 
 Keep all files and folders together and open index.html in your browser. To use it on a phone, publish the folder with GitHub Pages and open that link.
 
-## Upload to GitHub
-
-1. Extract the ZIP.
-2. Open your VM-fixture repository and choose Add file > Upload files.
-3. Replace the old index.html with this new index.html.
-4. Upload the css, js and assets folders, plus README.md, into the same root folder as index.html. Upload the contents directly, without an extra vm-fixture folder around them.
-5. Commit the changes. Keep Pages set to main and /(root).
-6. Wait for the Pages build to finish, then refresh your app. If an old version remains, refresh with Cmd+Shift+R on a Mac.
-
-The page uses relative file paths, so it works under your GitHub repository's URL.
-
 ## Saving your layouts
 
 Your layouts and uploaded pictures save in this browser using IndexedDB. Download backups regularly, before clearing browser data and before moving devices. If browser storage is blocked or full, export a backup before closing the app. Existing backups can be imported through Export > Import backup.
 
-Printed six-character product codes are read automatically and paired with nearby shoe images. Review the previews because blurry or angled photos may not read correctly. OCR runs in your browser; the first use needs internet to download the reading engine. Unreadable codes can be retried with a clearer photo or corrected in the preview.
+Printed six character product codes are read automatically and paired with nearby shoe images. Review the previews because blurry or angled photos may not read correctly. OCR runs in your browser; the first use needs internet to download the reading engine. Unreadable codes can be retried with a clearer photo or corrected in the preview.
 
 ## Editable fixture and drawing
 
